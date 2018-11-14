@@ -66,21 +66,31 @@ double standard_deviation(double scores[], int n)
 	return sqrt(variance(scores, n));
 }
 
+double standard_score(double scores[], int n, int x)
+{
+	return (50.0 + 10 * ((x - average(scores, n)) / standard_deviation(scores, n)));
+}
+
 void output(double scores[], int n)
 {
 	int i;
-	printf("average:%.1f\n", average(scores, CLASS_NUM));
-	printf("S-deviation:%.1f\n", standard_deviation(scores, CLASS_NUM));
-	printf("summation:%.1f\n", summation(scores, CLASS_NUM));
+	printf("average:%5.1f\n", average(scores, n));
+	printf("S-deviation:%5.1f\n", standard_deviation(scores, n));
+	printf("summation:%5.1f\n", summation(scores, n));
 	
-	
+	printf("S-score:\n[origin]->[S-score]\n");
+	for(i = 0; i < n; i++)
+	{
+		printf("%5.1f -> %5.1f\n", scores[i], standard_score(scores, n, scores[i]));
+	}
+
 	printf("sort:");
 	qsort((void*)scores, n, sizeof(scores[0]), comp);
 	for(i = 0; i < n-1; i++)
 	{
-		printf("%4.1f ", scores[i]);
+		printf("%5.1f ", scores[i]);
 	}
-	printf("%4.1f\n", scores[n-1]);
+	printf("%5.1f\n", scores[n-1]);
 }
 
 int comp(const void* a, const void* b)
