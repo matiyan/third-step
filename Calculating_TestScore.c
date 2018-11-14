@@ -9,6 +9,7 @@ double summation(double scores[], int n);
 double average(double scores[], int n);
 double variance(double scores[], int n);
 double standard_deviation(double scores[], int n);
+double standard_score(double scores[], int n, int x);
 void output(double scores[], int n);
 int comp(const void* a, const void* b);
 
