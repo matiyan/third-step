@@ -98,7 +98,7 @@ int comp(const void* a, const void* b)
 	double a_ = *((double*)a);
 	double b_ = *((double*)b);
 
-	if(a_ < b_)return -1;
-	if(a_ > b_)return 1;
+	if(a_ > b_)return -1;
+	if(a_ < b_)return 1;
 	return 0;
 }
