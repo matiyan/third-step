@@ -22,7 +22,7 @@ int main()
 	printf("About Science-test\n");
 	output(scores[0], CLASS_NUM);
 
-	printf("About English-test\n");
+	printf("\nAbout English-test\n");
 	output(scores[1], CLASS_NUM);
 	
 	return 0;
@@ -71,7 +71,9 @@ void output(double scores[], int n)
 	int i;
 	printf("average:%.1f\n", average(scores, CLASS_NUM));
 	printf("S-deviation:%.1f\n", standard_deviation(scores, CLASS_NUM));
-	printf("summation:%.1f\n", summation(scores, CLASS_NUM));	
+	printf("summation:%.1f\n", summation(scores, CLASS_NUM));
+	
+	
 	printf("sort:");
 	qsort((void*)scores, n, sizeof(scores[0]), comp);
 	for(i = 0; i < n-1; i++)
@@ -83,13 +85,10 @@ void output(double scores[], int n)
 
 int comp(const void* a, const void* b)
 {
-	int a_ = *(int*)a;
-	int b_ = *(int*)b;
+	double a_ = *((double*)a);
+	double b_ = *((double*)b);
 
 	if(a_ < b_)return -1;
 	if(a_ > b_)return 1;
 	return 0;
-A
-A
-
 }
